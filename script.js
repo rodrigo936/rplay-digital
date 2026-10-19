@@ -59,6 +59,7 @@ if (platformMarquee) {
 }
 const productCards = [...document.querySelectorAll(".product")];
 const filterButtons = [...document.querySelectorAll(".filter")];
+const tvHowGuide = document.querySelector("#tv-how-guide");
 document.querySelectorAll(".order-link").forEach((link) => {
   const product = link.dataset.product;
   const card = link.closest(".product");
@@ -95,6 +96,11 @@ tvProducts.forEach((card) => {
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const filter = button.dataset.filter;
+    if (tvHowGuide) {
+      tvHowGuide.hidden = filter !== "tv";
+      if (tvHowGuide.hidden) tvHowGuide.open = false;
+      else tvHowGuide.classList.add("visible");
+    }
     filterButtons.forEach((item) => {
       const selected = item === button;
       item.classList.toggle("active", selected);

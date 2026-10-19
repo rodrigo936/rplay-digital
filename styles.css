@@ -627,6 +627,81 @@ body { background-color: var(--paper); }
   color: #aaa6ba;
   font-size: .65rem;
 }
+.tv-how-guide {
+  margin: 0 0 22px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #9b8dff55;
+  border-radius: 17px;
+  background: linear-gradient(115deg, #7664df1c, #2b26431a 60%, #38cda312);
+  color: #f4f1ff;
+  box-shadow: 0 12px 35px #08071225;
+}
+.tv-how-guide[hidden] { display: none !important; }
+.tv-how-guide summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 17px 20px;
+  color: #e8e3ff;
+  cursor: pointer;
+  font-size: .9rem;
+  font-weight: 750;
+  list-style: none;
+}
+.tv-how-guide summary::-webkit-details-marker { display: none; }
+.tv-how-guide summary::after {
+  content: "+";
+  display: grid;
+  width: 27px;
+  height: 27px;
+  flex: 0 0 27px;
+  place-items: center;
+  border: 1px solid #9b8dff66;
+  border-radius: 50%;
+  color: #a9f4d6;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+.tv-how-guide[open] summary::after { content: "−"; }
+.tv-how-guide__steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 0 15px 15px;
+}
+.tv-how-guide__steps article {
+  display: flex;
+  gap: 10px;
+  min-height: 105px;
+  padding: 13px 12px;
+  border: 1px solid #ffffff16;
+  border-radius: 12px;
+  background: #11101b55;
+}
+.tv-how-guide__steps article > span {
+  color: #a9f4d6;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .05em;
+}
+.tv-how-guide__steps strong { color: #fff; font-size: .72rem; }
+.tv-how-guide__steps p {
+  margin: 6px 0 0;
+  color: #c0bdd0;
+  font-size: .66rem;
+  line-height: 1.6;
+}
+@media (max-width: 900px) {
+  .tv-how-guide__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .tv-how-guide { margin-bottom: 17px; }
+  .tv-how-guide summary { padding: 15px 16px; }
+  .tv-how-guide__steps { grid-template-columns: 1fr; padding: 0 10px 10px; }
+  .tv-how-guide__steps article { min-height: 0; }
+}
 .tv-compatibility {
   display: flex;
   flex-wrap: wrap;
