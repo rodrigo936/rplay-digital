@@ -1,0 +1,4 @@
+# Archivos temporales y perfiles locales
+/assets/tv-apps/edge-temp-profile/
+/.DS_Store
+/Thumbs.db
