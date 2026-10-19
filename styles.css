@@ -661,6 +661,26 @@ body { background-color: var(--paper); }
   gap: 7px;
   flex-wrap: wrap;
 }
+.demo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid color-mix(in srgb, var(--accent) 42%, white);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 10%, white);
+  color: #342b51;
+  font-size: .76rem;
+  font-weight: 700;
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+.demo-link:hover {
+  transform: translateY(-1px);
+  background: var(--accent);
+  box-shadow: 0 5px 14px color-mix(in srgb, var(--accent) 24%, transparent);
+}
+.demo-link:focus-visible { outline: 3px solid #9af1d2; outline-offset: 3px; }
+.demo-link b { font-size: .8rem; }
 .payment-link {
   display: inline-flex;
   align-items: center;

@@ -16,6 +16,7 @@ const homePlatforms = [
   { name: "Lumix TV", image: "assets/tv-apps/tv-color.png", color: "#8b6cff" },
   { name: "Femon Plus", image: "assets/tv-apps/femon-plus.png", color: "#a26bff" },
   { name: "Vexa APP", image: "assets/tv-apps/vexa-app.png", color: "#ce7dff" },
+  { name: "Argentum", image: "assets/tv-apps/argentum.jpg", color: "#a936ff" },
   { name: "MarTV", image: "assets/tv-apps/martv-logo.png", color: "#22d995" },
   { name: "FutureTV", image: "assets/tv-apps/future-tv.png", color: "#48caff" },
   { name: "Nueva TV", image: "assets/tv-apps/tv-verde.png", color: "#75e85e" },
@@ -72,6 +73,25 @@ document.querySelectorAll(".order-link").forEach((link) => {
   link.rel = "noopener noreferrer";
 });
 
+const tvProducts = document.querySelectorAll('.product[data-category="tv"]');
+tvProducts.forEach((card) => {
+  const actions = card.querySelector(".product-actions");
+  const product = card.querySelector("h3")?.textContent.trim();
+  if (!actions || !product || actions.querySelector(".demo-link")) return;
+
+  const demoLink = document.createElement("a");
+  demoLink.className = "demo-link";
+  demoLink.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(
+    `Hola, quiero pedir un demo de ${product} en RPlay Digital.`
+  );
+  demoLink.target = "_blank";
+  demoLink.rel = "noopener noreferrer";
+  demoLink.setAttribute("aria-label", `Pedir un demo de ${product} por WhatsApp`);
+  demoLink.innerHTML = 'Pedir demo <b aria-hidden="true">↗</b>';
+  const consultLink = actions.querySelector(".order-link");
+  if (consultLink) consultLink.insertAdjacentElement("afterend", demoLink);
+  else actions.prepend(demoLink);
+});
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const filter = button.dataset.filter;
